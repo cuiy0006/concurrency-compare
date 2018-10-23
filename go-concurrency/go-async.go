@@ -1,3 +1,7 @@
+//before build and run, check file count limit by ulimit -n, by default 256
+//set it at 4096 by ulimit -n 4096
+//if not enough, change file count in linux file
+
 package main
 
 import (
