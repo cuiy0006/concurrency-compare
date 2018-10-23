@@ -41,7 +41,7 @@ func testHead() time.Duration{
 		}()
 	}
 	//receive response
-	for i := 0; i < 1000; i++{
+	for i := 0; i < RequestCount; i++{
 		select {
 		case <- revChannel:
 			continue
