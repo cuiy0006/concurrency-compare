@@ -1,7 +1,7 @@
-//before build and run, check file count limit by ulimit -n, by default 256
-//set it at 4096 by ulimit -n 4096
-//if not enough, change file count in linux file
-
+//////before build and run, check file count limit by ulimit -n, by default 256
+//////set it at 4096 by ulimit -n 4096
+//////if not enough, change file count in linux file
+////
 package main
 
 import (
@@ -13,11 +13,7 @@ import (
 //Go async average time for  1000  HEAD requests
 //638.133765ms
 
-const (
-	IterationCount = 10
-	RequestCount = 1000
-	Url = "http://example.com"
-)
+
 
 func main() {
 	var totalDuration time.Duration
@@ -30,7 +26,7 @@ func main() {
 
 func testHead() time.Duration{
 	start := time.Now()
-	revChannel, errChannel := make(chan bool), make(chan error)
+	revChannel, errChannel := make(chan struct{}), make(chan error)
 	// HEAD request RequestCount times
 	for i := 0; i < RequestCount; i++ {
 		go func() {
@@ -39,7 +35,7 @@ func testHead() time.Duration{
 				errChannel <- err
 				return
 			} else {
-				revChannel <- true
+				revChannel <- struct{}{}
 				return
 			}
 		}()

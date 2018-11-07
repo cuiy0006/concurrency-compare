@@ -6,8 +6,8 @@ import time
 # 2.8183603286743164 s
 
 URL = 'http://example.com'
-ITERATION_CNT = 1
-REQUEST_CNT = 100
+ITERATION_CNT = 10
+REQUEST_CNT = 1000
 
 
 async def test_head():
